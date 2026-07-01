@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Environment files
+.env
+
+# Dataset folders
+model/Trash_dataset/
+dataset/
+datasets/
+
+# Large model files
+*.keras
+*.h5
+*.pkl
+
+# VS Code
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db

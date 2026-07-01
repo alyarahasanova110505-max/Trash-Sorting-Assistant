@@ -1,0 +1,178 @@
+/* ECO REWARD BAR */
+
+.eco-reward-widget {
+    position: fixed;
+    right: 24px;
+    top: 150px;
+    width: 150px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 18px;
+    box-shadow: 0 16px 34px rgba(22, 50, 79, 0.14);
+    z-index: 1000;
+    text-align: center;
+}
+
+.reward-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #143454;
+    margin-bottom: 14px;
+}
+
+.reward-progress {
+    position: relative;
+    width: 46px;
+    height: 220px;
+    margin: 0 auto;
+    background: #eaf3f8;
+    border-radius: 999px;
+    border: 1px solid #d7e8f0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.reward-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(180deg, var(--green-2), var(--blue-1));
+    border-radius: 999px;
+    transition: height 0.4s ease;
+    z-index: 1;
+}
+
+.reward-number {
+    position: relative;
+    z-index: 2;
+    color: #143454;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.reward-text {
+    margin: 14px 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.threw-trash-btn {
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    padding: 11px 12px;
+    background: linear-gradient(135deg, var(--green-1), var(--blue-1));
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.threw-trash-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* COUPON POPUP */
+
+.coupon-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.coupon-card {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    border-radius: 28px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+}
+
+.coupon-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #143454;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.gift-box {
+    font-size: 82px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gift-box:hover {
+    transform: scale(1.08);
+}
+
+.gift-box p {
+    margin: 12px 0 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: #143454;
+}
+
+.coupon-content h2 {
+    margin: 0;
+    color: #143454;
+    font-size: 26px;
+}
+
+.coupon-content p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.coupon-code {
+    margin: 18px auto;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #ebfff4, #edf7ff);
+    border: 2px dashed var(--green-1);
+    border-radius: 18px;
+    color: #143454;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.coupon-small-text {
+    font-size: 14px;
+}
+
+/* RESPONSIVE BAR */
+
+@media (max-width: 700px) {
+    .eco-reward-widget {
+        position: static;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto 20px;
+    }
+
+    .reward-progress {
+        height: 180px;
+    }
+}

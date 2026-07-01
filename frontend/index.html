@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trash Sorting Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+    <main class="page">
+
+        <aside class="eco-reward-widget">
+            <div class="reward-title">Eco Reward</div>
+
+            <div class="reward-progress">
+                <div class="reward-number">5</div>
+                <div class="reward-number">4</div>
+                <div class="reward-number">3</div>
+                <div class="reward-number">2</div>
+                <div class="reward-number">1</div>
+
+                <div id="rewardFill" class="reward-fill"></div>
+            </div>
+
+            <p id="rewardText" class="reward-text">0 / 5 items recycled</p>
+
+            <button id="threwTrashButton" class="threw-trash-btn" type="button" disabled>
+                I threw the trash
+            </button>
+        </aside>
+
+        <div id="couponPopup" class="coupon-popup hidden">
+            <div class="coupon-card">
+                <button id="closeCouponButton" class="coupon-close" type="button">×</button>
+
+                <div id="giftBox" class="gift-box">
+                    🎁
+                    <p>Open your reward</p>
+                </div>
+
+                <div id="couponContent" class="coupon-content hidden">
+                    <h2>You earned a coupon!</h2>
+                    <p>Thank you for recycling 5 items correctly.</p>
+
+                    <div class="coupon-code">
+                        GREEN25
+                    </div>
+
+                    <p class="coupon-small-text">
+                        Use this code for 25% discount on an eco-friendly product.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="app-shell">
+
+            <section class="hero-section">
+                <div class="hero-text">
+                    <div class="hero-badge">♻ Smart Waste Guide</div>
+                    <h1>Trash Sorting Assistant</h1>
+                    <p class="subtitle">
+                        Upload or take a picture of a waste item and get instant advice
+                        about which bin you should use.
+                    </p>
+
+                    <div class="hero-tags">
+                        <span>🌍 Eco friendly</span>
+                        <span>📷 Image scanning</span>
+                        <span>🗑 Bin recommendation</span>
+                    </div>
+
+
+                    <div class="how-to-use">
+                        <h3>How to use the application</h3>
+
+                        <div class="how-steps">
+                            <div class="how-step">
+                                <span>1</span>
+                                <p>Take or upload a picture of your waste item.</p>
+                            </div>
+
+                            <div class="how-step">
+                                <span>2</span>
+                                <p>Let the model predict the correct waste bin.</p>
+                            </div>
+
+                            <div class="how-step">
+                                <span>3</span>
+                                <p>Sort your trash correctly, help the planet and get a small present as a reward!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="hero-visual">
+                    <div class="visual-circle big"></div>
+                    <div class="visual-circle small"></div>
+
+                    <div class="floating-card fc1">♻</div>
+                    <div class="floating-card fc2">🧴</div>
+                    <div class="floating-card fc3">📄</div>
+                    <div class="floating-card fc4">🍾</div>
+
+                    <div class="hero-panel">
+                        <div class="bin-card green">
+                            <span class="bin-icon">🗞</span>
+                            <span>Paper</span>
+                        </div>
+                        <div class="bin-card blue">
+                            <span class="bin-icon">🧴</span>
+                            <span>Plastic</span>
+                        </div>
+                        <div class="bin-card teal">
+                            <span class="bin-icon">🍾</span>
+                            <span>Glass</span>
+                        </div>
+                        <div class="bin-card dark">
+                            <span class="bin-icon">🥫</span>
+                            <span>Metal</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="battery-mini-box">
+                <div class="battery-mini-content">
+                    <h2>⚠️Batteries need a special bin⚠️</h2>
+
+                    <p>
+                        Batteries should not be thrown into normal waste or recycling bins.
+                        Use a special battery collection point.
+                    </p>
+                    <h4>Risks of improper battery disposal:</h4>
+                    <ul class="battery-risk-list">
+                        <li>🔥 Fire risk</li>
+                        <li>⚠️ Chemical leakage</li>
+                        <li>💥 Explosion risk</li>
+                        <li>👷 Worker safety risk</li>
+                        <li>♻ Recycling contamination</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section-box">
+                <div class="section-title-row">
+                    <h2>Choose an image</h2>
+                    <p>Select an image from your device or use your camera</p>
+                </div>
+
+                <div class="actions">
+                    <label class="action-card">
+                        <div class="action-icon">🖼</div>
+                        <div class="action-text">
+                            <strong>Upload image</strong>
+                            <span>Select a photo from your device</span>
+                        </div>
+                        <input type="file" id="imageInput" accept="image/*" />
+                    </label>
+
+                    <button id="takePictureButton" class="action-card button-card" type="button">
+                        <div class="action-icon">📷</div>
+                        <div class="action-text">
+                            <strong>Take picture</strong>
+                            <span>Use the desktop camera to scan the waste item</span>
+                        </div>
+                    </button>
+                </div>
+            </section>
+
+            <section id="cameraBox" class="camera-box hidden">
+                <div class="section-title-row">
+                    <h2>Camera preview</h2>
+                    <p>Capture the waste item clearly for better prediction</p>
+                </div>
+
+                <video id="cameraVideo" autoplay playsinline></video>
+
+                <div class="camera-buttons">
+                    <button id="captureButton" class="primary-btn" type="button">Capture photo</button>
+                    <button id="closeCameraButton" class="secondary-btn" type="button">Close camera</button>
+                </div>
+            </section>
+
+            <section id="previewSection" class="preview-section hidden">
+                <div class="preview-header">
+                    <div>
+                        <h2>Selected image</h2>
+                        <p>Preview the selected item before analysing it</p>
+                    </div>
+                    <button id="predictButton" class="primary-btn" type="button">
+                        Analyse trash item
+                    </button>
+                </div>
+
+                <div class="preview-card">
+                    <img id="previewImage" alt="Selected trash item" />
+                </div>
+            </section>
+
+            <p id="errorMessage" class="error hidden"></p>
+
+            <section id="resultBox" class="result-box hidden">
+                <div class="result-header">
+                    <div>
+                        <h2>Prediction result</h2>
+                        <p>Here is the predicted waste category and recycling advice</p>
+                    </div>
+                    <div class="eco-pill">♻ Recycling Advice</div>
+                </div>
+
+                <div id="uncertainWarning" class="uncertain-warning hidden">
+                        ⚠ The model is not fully sure about this prediction. Please double-check the item before throwing it away.
+                </div>
+
+                <div class="result-main">
+                    <div class="result-item">
+                        <span class="label">Predicted category</span>
+                        <span class="value" id="predictedClass"></span>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="label">Confidence</span>
+                        <span class="value"><span id="confidence"></span>%</span>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="label">Recommended bin</span>
+                        <span class="value" id="recommendedBin"></span>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="label">Advice</span>
+                        <span class="value" id="advice"></span>
+                    </div>
+                </div>
+
+                <div class="probability-section">
+                    <h3>Confidence per category</h3>
+                    <div id="predictionList" class="prediction-list"></div>
+                </div>
+            </section>
+
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
